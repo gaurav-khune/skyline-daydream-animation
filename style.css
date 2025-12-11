@@ -1,0 +1,1047 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.climate {
+    animation: climateEffect 20s linear infinite;
+}
+
+@keyframes climateEffect {
+    0% {
+        filter: brightness(0.6);   /* night */
+    }
+    50% {
+        filter: brightness(1.4);   /* day */
+    }
+    100% {
+        filter: brightness(0.6);   /* night */
+    }
+}
+
+
+.sky {
+    width: 100%;
+    height: calc(100vh + 5rem);
+    position: relative;
+    overflow: hidden;
+    animation: skyCycle 20s linear infinite;
+}
+
+@keyframes skyCycle {
+    0% {
+        background-color: rgb(1, 31, 70);
+    }
+    15% {
+        background-color: rgb(1, 31, 70);
+    }
+    35% {
+        background-color: rgb(3, 52, 116);
+    }
+    50% {
+        background-color: rgb(38, 122, 200);
+    }
+    70% {
+        background-color: rgb(38, 122, 232);
+    }
+    80% {
+        background-color: rgb(105, 170, 255);
+    }
+    90% {
+        background-color: rgb(38, 122, 200);
+    }
+    100% {
+        background-color: rgb(1, 31, 70);
+    }
+}
+
+.moon {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0 0 30px #e8f2ff;
+    top: 2rem;
+    left: 45%;
+    animation: moveMoon 20s cubic-bezier(0.20, 0.65, 0.35, 1) infinite;
+}
+
+@keyframes moveMoon {
+    0% {
+        opacity: 0;
+        background-color: #ffffff;
+    }
+    10% {
+        opacity: 0.4;
+        background-color: #ffffff;
+        transform: translate(0);
+    }
+    15% {
+        opacity: 0.8;
+        background-color: #ffffff;
+    }
+    20% {
+        opacity: 1;
+        background-color: #ffffff;
+    }
+    50% {
+        transform: translateX(-20rem) translateY(16rem);
+        background-color: #ffffff;
+    }
+    75% {
+        transform: translateX(-20rem) translateY(18rem);
+        background-color: #ffffff;
+    }
+    100% {
+        transform: translateX(-20rem) translateY(18rem);
+        background-color: #ffffff;
+    }
+}
+
+.sun {
+    position: absolute;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    right: 65%;
+    top: 25rem;
+    animation: moveSun 20s cubic-bezier(0.30, 0.60, 0.10, 1) infinite;
+    background-color: tomato;
+}
+
+@keyframes moveSun {
+    0% {
+        transform: translate(0, 0);
+        background-color: tomato;
+        box-shadow: 0 0 10px gold;
+    }
+    33% {
+        transform: translate(420px, 0);
+        background-color: orangered;
+        box-shadow: 0 0 30px gold;
+    }
+    66% {
+        transform: translate(210px, -366px);
+        background-color: rgb(255, 244, 206);
+        box-shadow: 0 0 30px gold;
+    }
+    100% {
+        transform: translate(0, 0);
+        background-color: tomato;
+        box-shadow: 0 0 10px gold;
+    }
+}
+
+.sentence {
+    font-family: "Brush Script MT", cursive;
+    font-size: 8rem;
+    text-align: center;
+    margin-top: 1rem;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    animation: textFade 20s linear infinite;
+}
+
+@keyframes textFade {
+    0% { opacity: 0; }      
+    10% { opacity: 0; }     
+    20% { opacity: 0; }    
+    80% { opacity: 0; }     
+    90% { opacity: 1; }   
+    100% { opacity: 1; }
+}
+
+.cloud1 {
+    width: 5rem;
+    height: 5rem;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 5rem;
+    left: -10rem;
+    animation: moveClouds 20s linear infinite, cloudVisibility 20s linear infinite;
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+    opacity: 1;
+}
+
+@keyframes moveClouds {
+    0% {
+        transform: translate(-10vw);
+    }
+    45% {
+        transform: translate(calc(40vw));
+    }
+    80% {
+        transform: translate(calc(80vw));
+    }
+    100% {
+        transform: translate(calc(100vw + 10rem));
+    }
+}
+
+@keyframes cloudVisibility {
+    0% { opacity: 0; }      
+    10% { opacity: 0; }     
+    45% { opacity: 0.8; }    
+    60% { opacity: 0.5; }   
+    80% { opacity: 0.2; }     
+    100% { opacity: 0; }   
+}
+
+.cloud1::before {
+    content: "";
+    width: 5rem;
+    height: 3rem;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    right: 4rem;
+    top: 2rem;
+}
+
+.cloud1::after {
+    content: "";
+    width: 5rem;
+    height: 3rem;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    left: 4rem;
+    top: 2rem;
+}
+
+.cloud2 {
+    width: 5rem;
+    height: 5rem;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    left: -10rem;
+    top: 3rem;
+    animation: moveClouds 20s linear infinite, cloudVisibility 20s linear infinite;
+    animation-fill-mode: forwards;
+    animation-delay: 3s, 0s;  
+    opacity: 1;
+}
+
+.cloud2::before {
+    content: "";
+    width: 5rem;
+    height: 3rem;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    right: 4rem;
+    top: 2rem;
+}
+
+.cloud2::after {
+    content: "";
+    width: 5rem;
+    height: 3rem;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    left: 4rem;
+    top: 2rem;
+}
+
+.cloud3 {
+    width: 5rem;
+    height: 5rem;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    left: -10rem;
+    top: 5rem;
+    animation: moveClouds 20s linear infinite, cloudVisibility 20s linear infinite;
+    animation-fill-mode: forwards;
+    animation-delay: 7s, 0s;
+    opacity: 1;
+}
+
+.cloud3::before {
+    content: "";
+    width: 5rem;
+    height: 3rem;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    right: 4rem;
+    top: 2rem;
+}
+
+.cloud3::after {
+    content: "";
+    width: 5rem;
+    height: 3rem;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    left: 4rem;
+    top: 2rem;
+}
+
+.mountain1 {
+    width: 0;
+    height: 0;
+    top: 14.5rem;
+    left: -11rem;
+    position: absolute;
+    border-left: 20rem solid transparent; 
+    border-right: 20rem solid transparent;
+    border-bottom: 12rem solid rgba(2, 136, 90, 0.2);
+    z-index: 1;
+}
+
+.mountain2 {
+    width: 0;
+    height: 0;
+    top: 14.5rem;
+    left: 20rem;
+    position: absolute;
+    border-left: 20rem solid transparent; 
+    border-right: 20rem solid transparent;
+    border-bottom: 12rem solid rgba(2, 136, 90, 0.2);
+    z-index: 1;
+}
+
+.mountain3 {
+    width: 0;
+    height: 0;
+    top: 14.5rem;
+    left: 45rem;
+    position: absolute;
+    border-left: 20rem solid transparent; 
+    border-right: 20rem solid transparent;
+    border-bottom: 12rem solid rgba(2, 136, 90, 0.2);
+    z-index: 1;
+}
+
+.mountain4 {
+    width: 0;
+    height: 0;
+    top: 11.5rem;
+    left: -1rem;
+    position: absolute;
+    border-left: 20rem solid transparent; 
+    border-right: 20rem solid transparent;
+    border-bottom: 15rem solid rgba(2, 136, 90, 1);
+    z-index: 1;
+}
+
+.mountain5 {
+    width: 0;
+    height: 0;
+    top: 11.5rem;
+    left: 38rem;
+    position: absolute;
+    border-left: 20rem solid transparent; 
+    border-right: 20rem solid transparent;
+    border-bottom: 15rem solid rgba(2, 136, 90, 1);
+    z-index: 1;
+}
+
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30vh;
+    background-color: rgb(15, 146, 100);
+}
+
+.house {
+    position: absolute;
+    bottom: 8.5rem;
+    width: 10rem;
+    height: 7rem;
+    background-color: brown;
+    z-index: 3;
+    left: 32rem;
+}
+
+.roof{
+    height: 0;
+    width: 0;
+    border-left: 5rem solid transparent;
+    border-right: 5rem solid transparent;
+    border-bottom: 4rem solid brown;
+    position: absolute;
+    bottom: 100%;
+}
+
+.roof1 {
+    position: relative;
+    width: 8rem;
+    height: 0.5rem;
+    background-color: rgb(0, 0, 60);
+    transform-origin: origin;
+    transform: rotate(38deg);
+    top: 2.4rem;
+    right: 1rem;
+}
+
+.roof2 {
+    position: relative;
+    width: 8rem;
+    height: 0.5rem;
+    background-color: rgb(0, 0, 60);
+    transform-origin: origin;
+    transform: rotate(-38deg);
+    right: 7rem;
+    top: 1.9rem;
+}
+
+.door {
+    position: relative;
+    width: 3rem;
+    height: 4rem;
+    background-color: darkred;
+    top: 3rem;
+    left: 3.5rem;
+}
+
+.door-left {
+    position: absolute;
+    width: 0.3rem;
+    height: 4rem;
+    background-color: white;
+}
+
+.door-top {
+    position: absolute;
+    width: 3rem;
+    height: 0.3rem;
+    background-color: white;
+    top: 0;
+}
+
+.door-right {
+    position: absolute;
+    width: 0.3rem;
+    height: 4rem;
+    background-color: white;
+    right:0;
+}
+
+.door-mid {
+    position: absolute;
+    width: 0.3rem;
+    height: 4rem;
+    background-color: white;
+    left: 1.3rem;
+}
+
+.door-cross1 {
+    position: absolute;
+    width: 0.3rem;
+    height: 4.4rem;
+    background-color: white;
+    left: 1.35rem;
+    transform: rotate(-36deg);
+}
+
+.door-cross2 {
+    position: absolute;
+    width: 0.3rem;
+    height: 4.4rem;
+    background-color: white;
+    left: 1.35rem;
+    transform: rotate(36deg);
+}
+
+.door-bottom {
+    position: absolute;
+    width: 3rem;
+    height: 0.3rem;
+    background-color: white;
+    bottom: 0;
+}
+
+.window-mid {
+    position: absolute;
+    height: 2rem;
+    width: 1.5rem;
+    background-color: rgb(0, 0, 60);
+    bottom: 5.5rem;
+    left: 4.2rem;
+}
+
+.window-mid-top {
+    position: absolute;
+    width: 1.5rem;
+    height: 0.2rem;
+    background-color: white;
+}
+
+.window-horizontal {
+    position: absolute;
+    width: 1.5rem;
+    height: 0.2rem;
+    background-color: white;
+    top: 0.9rem;
+}
+
+.window-mid-bottom {
+    position: absolute;
+    width: 1.5rem;
+    height: 0.2rem;
+    background-color: white;
+    bottom: 0;
+}
+
+.window-mid-left {
+    position: absolute;
+    width: 0.2rem;
+    height: 2rem;
+    background-color: white;
+    left: 0rem;
+}
+
+.window-vertical {
+    position: absolute;
+    width: 0.2rem;
+    height: 2rem;
+    background-color: white;
+    left: 0.65rem;
+}
+
+.window-mid-right {
+    position: absolute;
+    width: 0.2rem;
+    height: 2rem;
+    background-color: white;
+    right: 0rem;
+}
+
+.window-left {
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color:rgb(0, 0, 60);
+    left: 1.2rem;
+    bottom: 3rem;
+}
+
+.window-left-left {
+    position: absolute;
+    width: 0.2rem;
+    height: 1.5rem;
+    background-color: white;
+    left: 0;
+}
+
+.window-left-top {
+    position: absolute;
+    width: 1.5rem;
+    height: 0.2rem;
+    background-color: white;
+    top: 0;
+}
+
+.window-left-right {
+    position: absolute;
+    width: 0.2rem;
+    height: 1.5rem;
+    background-color: white;
+    right: 0;
+}
+
+.window-left-bottom {
+    position: absolute;
+    width: 1.5rem;
+    height: 0.2rem;
+    background-color: white;
+    bottom: 0;
+}
+
+.window-right {
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color:rgb(0, 0, 60);
+    right: 1.2rem;
+    bottom: 3rem;
+}
+
+.window-right-left {
+    position: absolute;
+    width: 0.2rem;
+    height: 1.5rem;
+    background-color: white;
+    left: 0;
+}
+
+.window-right-top {
+    position: absolute;
+    width: 1.5rem;
+    height: 0.2rem;
+    background-color: white;
+    top: 0;
+}
+
+.window-right-right {
+    position: absolute;
+    width: 0.2rem;
+    height: 1.5rem;
+    background-color: white;
+    right: 0;
+}
+
+.window-right-bottom {
+    position: absolute;
+    width: 1.5rem;
+    height: 0.2rem;
+    background-color: white;
+    bottom: 0;
+}
+
+.windmill-wrapper {
+    position: absolute;
+    bottom: 8.5rem;
+    left: 50rem;
+    width: 18rem;     
+    height: 22rem;
+}
+
+.windmill {
+    position: absolute;
+    bottom: 0;
+    left: 6rem;      
+    width: 3rem;
+    height: 15rem;
+}
+
+
+.windmill-pole {
+    position: absolute;
+    bottom: 0;
+    left: 0.5rem;
+    width: 0;
+    height: 12rem;
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+    border-bottom: 14rem solid #f5f5f5;
+    z-index: 1;
+}
+
+.windmill-center {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    background: white;
+    border-radius: 50%;
+    top: 1.2rem;
+    left: 1rem;
+    z-index: 5;
+    transform-origin: center center;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.blade {
+    position: absolute;
+}
+
+.blade::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: -3rem;
+    left: 6rem;
+    border-left: 0.4rem solid transparent;
+    border-right: 0.4rem solid transparent;
+    border-bottom: 4rem solid white;
+    transform-origin: bottom center;
+}
+
+.blade::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: -3rem;
+    left: 6rem;
+    border-left: 0.4rem solid transparent;
+    border-right: 0.4rem solid transparent;
+    border-bottom: 4rem solid white;
+    transform: rotate(180deg);
+    transform-origin: bottom center;
+}
+
+.blade1 {
+    transform: rotate(0deg); 
+    right: 6.9rem;
+    top: -4.1rem;
+}
+.blade2 {
+    transform: rotate(120deg);
+    left: 8rem; 
+    top: -2.5rem;
+}
+.blade3 { 
+    transform: rotate(240deg); 
+    top: 8.5rem;
+    right: 1.6rem;
+}
+
+
+.barcade_hori_part1 {
+    position: absolute;
+    width: 24rem;
+    height: 0.5rem;
+    background-color: rgb(100, 53, 11);
+    z-index: 2;
+}
+
+.barcade_vert_part1 {
+    position: absolute;
+    width: 0.5rem;
+    height: 3rem;
+    left: 10.5rem;
+    background-color: rgb(100, 53, 11);
+    z-index: 2;
+    bottom: 8.7rem;
+}
+
+.barcade_vert_part2 {
+    position: absolute;
+    width: 0.5rem;
+    height: 3rem;
+    left: 20.5rem;
+    background-color: rgb(100, 53, 11);
+    z-index: 2;
+    bottom: 8.7rem;
+}
+
+.barcade_vert_part3 {
+    position: absolute;
+    width: 0.5rem;
+    height: 3rem;
+    left: 0.5rem;
+    background-color: rgb(100, 53, 11);
+    z-index: 2;
+    bottom: 8.7rem;
+}
+
+.barcade_hori_part2 {
+    position: absolute;
+    width: 24rem;
+    height: 0.5rem;
+    top: 1.5rem;
+    background-color: rgb(100, 53, 11);
+    z-index: 2;
+}
+
+.barcade_hori_part3 {
+    position: absolute;
+    bottom: 7.5rem;
+    width: 34rem;
+    height: 0.7rem;
+    background-color: rgb(100, 53, 11);
+    z-index: 2;
+}
+
+.barcade_vert_part4 {
+    position: absolute;
+    width: 0.8rem;
+    height: 4rem;
+    left: 1rem;
+    background-color: rgb(100, 53, 11);
+    z-index: 2;
+    bottom: 4.8rem;
+}
+
+.barcade_vert_part5 {
+    position: absolute;
+    width: 0.8rem;
+    height: 4rem;
+    left: 15rem;
+    background-color: rgb(100, 53, 11);
+    z-index: 2;
+    bottom: 4.8rem;
+}
+
+.barcade_vert_part6 {
+    position: absolute;
+    width: 0.8rem;
+    height: 4rem;
+    left: 30rem;
+    background-color: rgb(100, 53, 11);
+    z-index: 2;
+    bottom: 4.8rem;
+}
+
+.barcade_hori_part4 {
+    position: absolute;
+    bottom: 5.5rem;
+    width: 34rem;
+    height: 0.7rem;
+    background-color: rgb(100, 53, 11);
+    z-index: 2;
+}
+
+.barcade_hori_part5 {
+    position: absolute;
+    right: 0;
+    bottom: 7.5rem;
+    width: 18rem;
+    height: 0.7rem;
+    background-color: rgb(100, 53, 11);
+    z-index: 2;
+}
+
+.barcade_vert_part7 {
+    position: absolute;
+    right: 14rem;
+    width: 0.8rem;
+    height: 4rem;
+    background-color: rgb(100, 53, 11);
+    z-index: 2;
+    bottom: 4.8rem;
+}
+
+.barcade_vert_part8 {
+    position: absolute;
+    right: 2rem;
+    width: 0.8rem;
+    height: 4rem;
+    background-color: rgb(100, 53, 11);
+    z-index: 2;
+    bottom: 4.8rem;
+}
+
+.barcade_hori_part6 {
+    position: absolute;
+    right: 0;
+    bottom: 5.5rem;
+    width: 18em;
+    height: 0.7rem;
+    background-color: rgb(100, 53, 11);
+    z-index: 2;
+}
+
+.road {
+    position: absolute;
+    width: 100%;
+    height: 10vh;
+    bottom: 1rem;
+    background-color: rgb(60, 60, 60);
+}
+
+.strip {
+    position: absolute;
+    width: 100%;
+    height: 0.2rem;
+    background-color: white;
+    top: 1rem;
+}
+
+.truck { 
+    position: absolute; 
+    bottom: 1.5rem;
+    width: 15rem;   
+    height: 6rem;
+    left: -15rem;  
+    animation: movingtruck 12s linear infinite; 
+    z-index: 4;
+}
+
+@keyframes movingtruck {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(calc(100vw + 30rem)); }
+}
+
+.truck-body {
+    position: absolute;
+    width: 8rem;
+    height: 5rem;
+    border-top-left-radius: 0.6rem;
+    border-top-right-radius: 0.6rem;
+    bottom: 1rem;
+    z-index: 3;
+    background: linear-gradient(to bottom right, #f9d76a, #e49a22);
+}
+
+.truck-front-1 {
+    position: absolute;
+    height: 1.5rem;
+    width: 2.5rem;
+    background-color: rgb(227, 68, 68);
+    border-top-right-radius: 4rem;
+    z-index: 3;
+    bottom: 2.4rem;
+    left: 8.5rem;
+}
+
+.truck-front-2 {
+    position: absolute;
+    height: 2.5rem;
+    width: 4rem;
+    background-color: rgb(227, 68, 68);
+    z-index: 3;
+    left: 8.5rem;
+    bottom: 0;
+    border-top-right-radius: 1.5rem;
+}
+
+.truck-window {
+    position: absolute;
+    width: 2rem;
+    height: 1.5rem;
+    background-color: lightblue;
+    border-top-right-radius: 1rem;
+    left: 8.7rem;
+    bottom: 2rem;
+    z-index: 4;
+}
+
+.truck-bottom1 {
+    position: absolute;
+    z-index: 4;
+    width: 8rem;
+    height: 0.2rem;
+    bottom: 1rem;
+    background-color: rgb(184, 184, 184);
+}
+
+.truck-bottom2 {
+    position: absolute;
+    height: 1rem;
+    width: 8rem;
+    bottom: 0.2rem;
+    background-color: rgb(100, 100, 100);
+    z-index: 3;
+}
+
+.truck-bottom3 {
+    position: absolute;
+    z-index: 3;
+    width: 13rem;
+    height: 0.4rem;
+    bottom: 0.01rem;
+    background-color: rgb(184, 184, 184);
+}
+
+.half-circle::before {
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: 1rem;
+    border-top-left-radius: 5rem;
+    border-top-right-radius: 5rem;
+    background-color: rgb(184, 184, 184);
+    left: 0.6rem;
+    bottom: 0.1rem;
+    z-index: 3;
+}
+
+.half-circle::after {
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: 1rem;
+    border-top-left-radius: 5rem;
+    border-top-right-radius: 5rem;
+    background-color: rgb(184, 184, 184);
+    left: 9rem;
+    bottom: 0.1rem;
+    z-index: 3;
+}
+
+.tyre::before {
+    content: "";
+    position: absolute;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+    left: 0.65rem;
+    top: 5.2rem;
+    z-index: 3;
+}
+
+.tyre::after {
+    content: "";
+    position: absolute;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+    left: 9.1rem;
+    top: 5.2rem;
+    z-index: 3;
+}
+
+.tyre-inner1::before {
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: rgb(150, 150, 150);
+    left: 1.06rem;
+    bottom: -0.6rem;
+    z-index: 4;
+}
+
+.tyre-inner1::after {
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: rgb(150, 150, 150);
+    left: 9.5rem;
+    bottom: -0.6rem;
+    z-index: 4;
+}
+
+.truck-headlight {
+    position: absolute;
+    width: 0.5rem;
+    height: 0.6rem;
+    background-color: yellow;
+    border-radius: 0.1rem 0.1rem 0.1rem 0.1rem;
+    left: 12.1rem;
+    bottom: 0.6rem;
+    z-index: 4;
+    animation: lightBlink 1s infinite;
+}
+
+@keyframes lightBlink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+
+.truck-backlight {
+    position: absolute;
+    width: 0.3rem;
+    height: 0.5rem;
+    background-color: red;
+    border-radius: 0.1rem 0.1rem 0.1rem 0.1rem;
+    left: -0.1rem;
+    bottom: 0.45rem;
+    z-index: 4;
+    animation: lightBlink 1s infinite;
+}
